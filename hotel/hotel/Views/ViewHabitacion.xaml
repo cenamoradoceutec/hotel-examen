@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hotel.Views.ViewHabitacion"
+             xmlns:local ="clr-namespace:hotel.ViewModel"
+             Title="Habitaciones">
+
+    <ContentPage.BindingContext>
+        <local:ViewModelHabitacion></local:ViewModelHabitacion>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout HorizontalOptions="Fill" BackgroundColor="#fd79a8" Padding="20" >                
+                <FlexLayout Direction="Column">
+                    <Label Text="Bienvenido" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+                    <Label Text="{Binding NombreCliente}" HorizontalTextAlignment="Center" TextColor="White" FontSize="20"/>
+                </FlexLayout>
+            </StackLayout>
+
+            <CollectionView  ItemsSource="{Binding ListaHabitacionesNormal}" EmptyView="Collection is null or empty.">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="20" >
+                            <Frame IsClippedToBounds="True"
+                            HasShadow="True" BorderColor="#dfe6e9">
+                                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                    <Image  Source="{Binding Imagen}" Aspect="Fill" HeightRequest="200" />
+                                    <Label TextColor="#222" FontSize = "25" Text="{Binding Titulo}"/>
+                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                        <FlexLayout Direction="Row">
+                                            <Label Text="Numero de habitacion: " FontSize="18" TextColor="#222" FontAttributes="Bold" />
+                                            <Label Text="{Binding NumeroCuarto}" FontSize="18" TextColor="#222"/>
+                                        </FlexLayout>
+                                        <FlexLayout Direction="Row">
+                                            <Label Text="Precio: " FontSize="18" TextColor="#222" FontAttributes="Bold" />
+                                            <Label Text="$" FontSize="18" TextColor="#222"/>
+                                            <Label Text="{Binding Precio}" FontSize="18" TextColor="#222"/>
+                                        </FlexLayout>
+                                        <FlexLayout Direction="Row">
+                                            <Label Text="Ducha: " FontSize="18" TextColor="#222" FontAttributes="Bold" />
+                                            <Label Text="{Binding Ducha}" FontSize="18" TextColor="#222"/>
+                                        </FlexLayout>
+                                        <FlexLayout Direction="Row">
+                                            <Label Text="Cantidad de Camas: " FontSize="18" TextColor="#222" FontAttributes="Bold" />
+                                            <Label Text="{Binding CantidadCamas}" FontSize="18" TextColor="#222"/>
+                                        </FlexLayout>
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </Frame>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+     
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

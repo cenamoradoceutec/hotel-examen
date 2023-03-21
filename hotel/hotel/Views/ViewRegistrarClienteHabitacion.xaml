@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hotel.Views.ViewRegistrarClienteHabitacion"
+              xmlns:local ="clr-namespace:hotel.ViewModel"
+             Title="Registar Cliente/Habitacion">
+
+    <ContentPage.BindingContext>
+
+        <local:ViewModelHabitacionPersona></local:ViewModelHabitacionPersona>
+
+    </ContentPage.BindingContext>
+
+
+ 
+
+    <ContentPage.Content>
+        
+        <StackLayout>
+
+            <Picker Title="Habitaciones" 
+                    ItemsSource="{Binding listaHabitacionNormal}" 
+                    SelectedItem="{Binding HabitacionSeleccionada}"
+                    >
+                
+            </Picker>
+
+            <Button Text="Asignar" Command="{Binding AsignarHabitacion}"  ></Button>
+
+            <Button Text="Ver Perfil Cliente" Command="{Binding MostrarPerfil}"  ></Button>
+
+
+            <FlexLayout Direction="Row">
+                <Label Text="Nombre: " HorizontalTextAlignment="Start" TextColor="Black" FontSize="20"/>
+                <Label Text="{Binding NombreCliente}" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20"/>
+            </FlexLayout>
+            <FlexLayout Direction="Row">
+                <Label Text="Edad: " HorizontalTextAlignment="Start" TextColor="Black" FontSize="20"/>
+                <Label Text="{Binding EdadCliente}" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20"/>
+            </FlexLayout>
+            <FlexLayout Direction="Row">
+                <Label Text="Tipo Cliente: " HorizontalTextAlignment="Start" TextColor="Black" FontSize="20"/>
+                <Label Text="{Binding TipoCliente}" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20"/>
+            </FlexLayout>
+            
+            <Label Text="Habitaciones Registradas" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20"/>
+           
+            <CollectionView ItemsSource="{Binding listaHabitacionesRegistradas}" 
+                            SelectionMode="Single">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <Grid Padding="10">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Label  Text="{Binding nombreCompleto}" Grid.Row="1" Grid.Column="0" ></Label>
+                            <Label  Text="{Binding edad}" Grid.Row="2" Grid.Column="0" ></Label>
+                            <Label  Text="{Binding tipo}" Grid.Row="3" Grid.Column="0" ></Label>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

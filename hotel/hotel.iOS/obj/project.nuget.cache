@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ed/QrfuIDRsn2Nh/pdzcWUQYtdjAYGwaMpXeS4m/SZxEapOQ1rXg/gdwKn5yhFeJx4vh9at1RTPmZB30wl5QFw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Chriss\\source\\repos\\hotel\\hotel\\hotel.iOS\\hotel.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Chriss\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Chriss\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\Chriss\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

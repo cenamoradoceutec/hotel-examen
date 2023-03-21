@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hotel.Views.ViewCrearCliente"
+             xmlns:local ="clr-namespace:hotel.ViewModel"
+             Title="Crear Cliente">
+
+    <ContentPage.BindingContext>
+        <local:ViewModelCreacionCliente></local:ViewModelCreacionCliente>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#fd79a8" Padding="24" CornerRadius="0"   >
+                <Label Text="Registrar Cliente" HorizontalTextAlignment="Center" TextColor="white" FontSize="36" Margin="20"/>
+            </Frame>
+
+            <Label Text="Nombre Completo"></Label>
+            <Entry Text="{Binding NombreCompleto}" ></Entry>
+            <Label Text="Edad"></Label>
+            <Entry Text="{Binding Edad}" ></Entry>
+            <Label Text="Tipo de Cliente"></Label>
+            <Entry Text="{Binding Tipo}" ></Entry>
+       
+
+            <Button Command="{Binding CrearCliente}"  Text="Crear Cliente"   ></Button>
+
+            <CollectionView ItemsSource="{Binding ListaClientes}" 
+                            SelectionMode="Single">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+
+                        <Grid Padding="10">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Label  Text="{Binding nombreCompleto}" Grid.Row="0" Grid.Column="0" ></Label>
+                            <Label  Text="{Binding edad}" Grid.Row="0" Grid.Column="0" ></Label>
+                            <Label  Text="{Binding tipo}" Grid.Row="0" Grid.Column="0" ></Label>
+
+                        </Grid>
+
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

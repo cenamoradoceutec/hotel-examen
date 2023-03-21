@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="hotel.Views.ViewCrearHabitacion"
+             xmlns:local ="clr-namespace:hotel.ViewModel"
+             Title="Crear Habitacion">
+    
+    <ContentPage.BindingContext>
+        <local:ViewModelCreacionHabitacion></local:ViewModelCreacionHabitacion>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2B3467" Padding="24" CornerRadius="0"   >
+                <Label Text="Crear Habitacion" HorizontalTextAlignment="Center" TextColor="#BAD7E9" FontSize="36" Margin="20"/>
+            </Frame>
+
+            <Label Text="Numero de Cuarto"></Label>
+            <Entry Text="{Binding NumeroHabitacion}" ></Entry>
+
+            <Label Text="Precio"></Label>
+            <Entry Text="{Binding PrecioHabitacion}" ></Entry>
+
+            <Label Text="Cantidad de camas"></Label>
+            <Entry Text="{Binding CamasCantidad}"></Entry>
+            
+            <Button Command="{Binding CrearHabitacion}"  Text="Crear Habitacion"   ></Button>
+
+            <CollectionView ItemsSource="{Binding ListaHabitaciones}" 
+                            SelectionMode="Single">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+
+                        <Grid Padding="10">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Label  Text="{Binding NumeroCuarto}" Grid.Row="0" Grid.Column="0" ></Label>
+                            <Label  Text="{Binding Precio}" Grid.Row="0" Grid.Column="1" ></Label>
+                            <Label  Text="{Binding CantidadCamas}" Grid.Row="0" Grid.Column="2" ></Label>
+                            
+                        </Grid>
+
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
